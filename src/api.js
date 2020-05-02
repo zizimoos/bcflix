@@ -15,7 +15,7 @@ export const movieApi = {
   popular: () => api.get("movie/popular"),
   upComing: () => api.get("movie/upcoming"),
   topRated: () => api.get("movie/top_rated"),
-  nowPlaying: () => api.ger("movie/now_playing"),
+  nowPlaying: () => api.get("movie/now_playing"),
   latest: () => api.get("movie/latest"),
   movieDetail: (id) =>
     api.get(`movie/${id}`, {
