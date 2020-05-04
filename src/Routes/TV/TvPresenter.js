@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Section from "../../Components/Section";
 import Loader from "../../Components/Loader";
 import Messages from "../../Components/Messages";
+import Poster from "../../Components/Poster";
 
 const Container = styled.div`
   padding: 0px 10px;
@@ -18,21 +19,42 @@ const TvPresenter = ({ popular, topRated, airingToday, error, loading }) =>
       {popular && popular.length > 0 && (
         <Section title="Popular Shows">
           {popular.map((tvShow) => (
-            <span key={tvShow.id}>{tvShow.original_name}</span>
+            <Poster
+              key={tvShow.id}
+              id={tvShow.id}
+              imgUrl={tvShow.poster_path}
+              title={tvShow.original_name}
+              rating={tvShow.vote_average}
+              year={tvShow.first_air_date && tvShow.first_air_date.slice(0, 4)}
+            ></Poster>
           ))}
         </Section>
       )}
       {topRated && topRated.length > 0 && (
         <Section title="TopRated Shows">
           {topRated.map((tvShow) => (
-            <span key={tvShow.id}>{tvShow.original_name}</span>
+            <Poster
+              key={tvShow.id}
+              id={tvShow.id}
+              imgUrl={tvShow.poster_path}
+              title={tvShow.original_name}
+              rating={tvShow.vote_average}
+              year={tvShow.first_air_date && tvShow.first_air_date.slice(0, 4)}
+            ></Poster>
           ))}
         </Section>
       )}
       {airingToday && airingToday.length > 0 && (
         <Section title="AiringToday Shows">
           {airingToday.map((tvShow) => (
-            <span key={tvShow.id}>{tvShow.original_name}</span>
+            <Poster
+              key={tvShow.id}
+              id={tvShow.id}
+              imgUrl={tvShow.poster_path}
+              title={tvShow.original_name}
+              rating={tvShow.vote_average}
+              year={tvShow.first_air_date && tvShow.first_air_date.slice(0, 4)}
+            ></Poster>
           ))}
         </Section>
       )}

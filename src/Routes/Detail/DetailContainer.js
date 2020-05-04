@@ -27,6 +27,7 @@ export default class extends React.Component {
     if (isNaN(parsedId)) {
       return push("/");
     }
+
     let result = null;
     try {
       if (isMove) {
@@ -34,7 +35,7 @@ export default class extends React.Component {
       } else {
         ({ data: result } = await tvApi.tvDetail(parsedId));
       }
-      console.log(result);
+      console.log("container", result);
     } catch (error) {
       this.setState({ error: "Can't find anything." });
     } finally {
@@ -44,6 +45,7 @@ export default class extends React.Component {
 
   render() {
     const { result, error, loading } = this.state;
+    console.log("render", result);
     return (
       <DetailPresenter
         result={result}
