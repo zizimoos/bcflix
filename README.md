@@ -27,3 +27,7 @@ practice ReactJS & ES6 by building a movie discovery app
 - [x] Collections Link
 - [x] /collections Route
 - [x] On TV Show, Show seasons and creators
+
+# Preview
+
+Try it on [netlify](https://eloquent-swirles-9dfe4b.netlify.app/movie/338762/subMovie)
