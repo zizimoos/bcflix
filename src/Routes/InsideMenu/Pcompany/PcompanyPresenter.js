@@ -36,8 +36,8 @@ const YouTubePlay = styled.div`
   padding-bottom: 56.25%;
   iframe {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
   }
 `;
 
