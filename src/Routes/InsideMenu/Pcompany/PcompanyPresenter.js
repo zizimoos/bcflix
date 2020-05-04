@@ -32,7 +32,7 @@ const Li = styled.li`
 const YouTubePlay = styled.div`
   position: relative;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 10px;
   padding-bottom: 56.25%;
   iframe {
     position: absolute;

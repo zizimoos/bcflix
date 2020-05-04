@@ -67,13 +67,13 @@ const Title = styled.span`
   display: inline-block;
   font-size: 30px;
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 `;
 
 const ItemContainer = styled.div`
   line-height: 2;
   font-size: 12px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 `;
 const Item = styled.span`
   position: relative;
@@ -98,7 +98,7 @@ const Divider = styled.span`
   margin: 0px 10px;
 `;
 const Overview = styled.p`
-  margin-top: 20px;
+  margin-top: 10px;
   line-height: 1.7;
   text-align: justify;
   opacity: 0.8;
