@@ -1,6 +1,6 @@
 import React from "react";
-import DetailPresenter from "./DetailPresenter";
-import { movieApi, tvApi } from "../../api";
+import { movieApi, tvApi } from "../../../api";
+import CreateByPresenter from "./CreatedByPresenter";
 
 export default class extends React.Component {
   constructor(props) {
@@ -15,6 +15,7 @@ export default class extends React.Component {
       isMovie: pathname.includes("/movie/"),
     };
   }
+
   async componentDidMount() {
     const {
       match: {
@@ -24,33 +25,33 @@ export default class extends React.Component {
     } = this.props;
     const { isMovie } = this.state;
     const parsedId = parseInt(id);
+    console.log(".....");
     if (isNaN(parsedId)) {
       return push("/");
     }
-
-    let result = null;
+    let subresult = null;
     try {
       if (isMovie) {
-        ({ data: result } = await movieApi.movieDetail(parsedId));
+        ({ data: subresult } = await movieApi.movieDetail(parsedId));
       } else {
-        ({ data: result } = await tvApi.tvDetail(parsedId));
+        ({ data: subresult } = await tvApi.tvDetail(parsedId));
       }
     } catch (error) {
       this.setState({ error: "Can't find anything." });
     } finally {
-      this.setState({ loading: false, result });
+      this.setState({ loading: false, subresult });
+      console.log("CreatedBy :", subresult);
     }
   }
 
   render() {
-    const { result, error, loading } = this.state;
-    console.log(result);
+    const { subresult, error, loading } = this.state;
     return (
-      <DetailPresenter
-        result={result}
+      <CreateByPresenter
+        subresult={subresult}
         error={error}
         loading={loading}
-      ></DetailPresenter>
+      />
     );
   }
 }

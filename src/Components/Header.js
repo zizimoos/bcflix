@@ -46,7 +46,7 @@ export default withRouter(({ location: { pathname } }) => (
     {/* {console.log(pathname)} */}
     <List className="nav">
       <Item current={pathname === "/"}>
-        <Slink to="/">Home</Slink>
+        <Slink to="/">Movie</Slink>
       </Item>
       <Item current={pathname === "/tv"}>
         <Slink to="/tv">TV</Slink>

@@ -1,6 +1,6 @@
 import React from "react";
-import DetailPresenter from "./DetailPresenter";
-import { movieApi, tvApi } from "../../api";
+import { movieApi } from "../../../api";
+import SubMoviePresenter from "./SubMoviePresenter";
 
 export default class extends React.Component {
   constructor(props) {
@@ -15,6 +15,7 @@ export default class extends React.Component {
       isMovie: pathname.includes("/movie/"),
     };
   }
+
   async componentDidMount() {
     const {
       match: {
@@ -27,13 +28,10 @@ export default class extends React.Component {
     if (isNaN(parsedId)) {
       return push("/");
     }
-
     let result = null;
     try {
       if (isMovie) {
         ({ data: result } = await movieApi.movieDetail(parsedId));
-      } else {
-        ({ data: result } = await tvApi.tvDetail(parsedId));
       }
     } catch (error) {
       this.setState({ error: "Can't find anything." });
@@ -46,11 +44,7 @@ export default class extends React.Component {
     const { result, error, loading } = this.state;
     console.log(result);
     return (
-      <DetailPresenter
-        result={result}
-        error={error}
-        loading={loading}
-      ></DetailPresenter>
+      <SubMoviePresenter result={result} error={error} loading={loading} />
     );
   }
 }

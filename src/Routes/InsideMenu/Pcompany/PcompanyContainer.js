@@ -1,20 +1,17 @@
 import React from "react";
-import DetailPresenter from "./DetailPresenter";
-import { movieApi, tvApi } from "../../api";
+import { tvApi } from "../../../api";
+import PcompanyPresenter from "./PcompanyPresenter";
 
 export default class extends React.Component {
   constructor(props) {
     super(props);
-    const {
-      location: { pathname },
-    } = props;
     this.state = {
       result: null,
       error: null,
       loading: true,
-      isMovie: pathname.includes("/movie/"),
     };
   }
+
   async componentDidMount() {
     const {
       match: {
@@ -22,35 +19,26 @@ export default class extends React.Component {
       },
       history: { push },
     } = this.props;
-    const { isMovie } = this.state;
     const parsedId = parseInt(id);
     if (isNaN(parsedId)) {
       return push("/");
     }
-
-    let result = null;
+    let result;
     try {
-      if (isMovie) {
-        ({ data: result } = await movieApi.movieDetail(parsedId));
-      } else {
-        ({ data: result } = await tvApi.tvDetail(parsedId));
-      }
+      ({ data: result } = await tvApi.tvDetail(parsedId));
+      console.log("PRODUCTION :", result);
     } catch (error) {
       this.setState({ error: "Can't find anything." });
     } finally {
       this.setState({ loading: false, result });
+      console.log("PRODUCTION :", result);
     }
   }
 
   render() {
     const { result, error, loading } = this.state;
-    console.log(result);
     return (
-      <DetailPresenter
-        result={result}
-        error={error}
-        loading={loading}
-      ></DetailPresenter>
+      <PcompanyPresenter result={result} error={error} loading={loading} />
     );
   }
 }
