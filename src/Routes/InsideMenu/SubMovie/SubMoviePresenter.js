@@ -10,7 +10,7 @@ const Container = styled.div`
   height: calc(100vh - 50px);
   width: 100%;
   position: relative;
-  padding: 10px;
+  padding: 0px;
 `;
 
 const Content = styled.div`
@@ -37,8 +37,8 @@ const YouTubePlay = styled.div`
   padding-bottom: 56.25%;
   iframe {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
   }
 `;
 

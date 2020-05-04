@@ -197,7 +197,7 @@ const DetailPresenter = withRouter(
                   </Li>
                   <Li active={pathname === `/movie/${result.id}/production`}>
                     <SLink to={`/movie/${result.id}/production`}>
-                      Production
+                      Created By
                     </SLink>
                   </Li>
                   <Li active={pathname === `/movie/${result.id}/country`}>
